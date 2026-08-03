@@ -10,7 +10,7 @@
     content="width=device-width, initial-scale=1.0"
 >
 
-<title>For My KIKI ❤️</title>
+<title>For My KIKI BABYY ❤️</title>
 
 
 <style>
@@ -101,7 +101,7 @@ body {
 
     pointer-events: none;
 
-    z-index: 0;
+    z-index: 2;
 
 }
 
@@ -114,7 +114,7 @@ body {
 
     color: var(--blue);
 
-    opacity: .17;
+    opacity: .20;
 
     animation:
         floatHeart linear infinite;
@@ -139,7 +139,7 @@ body {
 
     10% {
 
-        opacity: .18;
+        opacity: .22;
 
     }
 
@@ -203,12 +203,100 @@ body {
 
     text-align: center;
 
+    overflow: hidden;
+
 }
 
+
+/* =========================================================
+   FIRST PAGE ONLY
+   BLACK & WHITE VIDEO COVER BACKGROUND
+========================================================= */
+
+#openerScreen {
+
+    isolation: isolate;
+
+}
+
+
+/*
+   This pseudo-element contains the actual photograph.
+
+   Because grayscale is applied only to this layer,
+   the card, text and button stay colorful.
+*/
+
+#openerScreen::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: -2;
+
+    background-image:
+        url("video-cover.jpeg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    filter:
+        grayscale(100%)
+        contrast(1.08)
+        brightness(.76);
+
+    transform: scale(1.02);
+
+}
+
+
+/*
+   Slight overlay so the glass box remains
+   clearly visible on top of the photograph.
+*/
+
+#openerScreen::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: -1;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,.04),
+            rgba(5,20,30,.16)
+        ),
+
+        linear-gradient(
+            135deg,
+            rgba(5,20,30,.12),
+            rgba(0,35,60,.25)
+        );
+
+}
+
+
+/* =========================================================
+   GLASS CARD
+========================================================= */
 
 .gate-card {
 
     position: relative;
+
+    z-index: 5;
 
     width: min(650px, 92vw);
 
@@ -221,11 +309,11 @@ body {
     border-radius: 35px;
 
     background:
-        rgba(255,255,255,.48);
+        rgba(238,255,255,.60);
 
     border:
         1px solid
-        rgba(255,255,255,.90);
+        rgba(255,255,255,.92);
 
     backdrop-filter:
         blur(18px);
@@ -234,8 +322,12 @@ body {
         blur(18px);
 
     box-shadow:
+
         0 30px 80px
-        rgba(20,90,145,.16);
+        rgba(0,30,55,.25),
+
+        inset 0 1px 0
+        rgba(255,255,255,.75);
 
 }
 
@@ -253,7 +345,7 @@ body {
     font-size: 200px;
 
     color:
-        rgba(38,120,189,.06);
+        rgba(38,120,189,.07);
 
 }
 
@@ -271,13 +363,13 @@ body {
     font-size: 150px;
 
     color:
-        rgba(38,120,189,.05);
+        rgba(38,120,189,.06);
 
 }
 
 
 /* =========================================================
-   OPENING TEXT
+   HEYY
 ========================================================= */
 
 .hello {
@@ -309,6 +401,10 @@ body {
 }
 
 
+/* =========================================================
+   FIRST PAGE TITLE
+========================================================= */
+
 .gate-title {
 
     position: relative;
@@ -328,7 +424,7 @@ body {
         serif;
 
     font-size:
-        clamp(45px,8vw,82px);
+        clamp(42px,7vw,78px);
 
     font-style: italic;
 
@@ -342,7 +438,7 @@ body {
 
 
 /* =========================================================
-   NEW KIKI FONT
+   KIKI BABYY FONT
 ========================================================= */
 
 .kiki {
@@ -360,7 +456,7 @@ body {
 
     font-style: italic;
 
-    letter-spacing: .07em;
+    letter-spacing: .045em;
 
     color: #115b9d;
 
@@ -914,7 +1010,7 @@ h1 span {
 
 
 /* =========================================================
-   PHOTO FILLS FULL BOX
+   PHOTOS FILL ENTIRE BOX
 ========================================================= */
 
 .photo-slot {
@@ -1390,6 +1486,15 @@ footer {
 
 @media(max-width:600px) {
 
+    #openerScreen::before {
+
+        background-position: center center;
+
+        transform: scale(1.01);
+
+    }
+
+
     .gate-card {
 
         padding:
@@ -1397,6 +1502,14 @@ footer {
             22px;
 
         border-radius: 27px;
+
+    }
+
+
+    .gate-title {
+
+        font-size:
+            clamp(36px,11vw,55px);
 
     }
 
@@ -1527,7 +1640,7 @@ footer {
 
 
 <!-- =========================================================
-     PAGE 1
+     FIRST PAGE
 ========================================================= -->
 
 <div
@@ -1550,7 +1663,7 @@ footer {
 
             <span class="kiki">
 
-                KIKI BABYYY
+                KIKI BABYY
 
             </span>
 
@@ -1715,13 +1828,11 @@ footer {
 
 
     <!-- =====================================================
-         PHOTO GALLERY
+         PHOTOS
     ====================================================== -->
 
     <div class="gallery">
 
-
-        <!-- PHOTO 1 -->
 
         <div class="polaroid">
 
@@ -1747,8 +1858,6 @@ footer {
 
 
 
-        <!-- PHOTO 2 -->
-
         <div class="polaroid">
 
 
@@ -1773,8 +1882,6 @@ footer {
 
 
 
-        <!-- PHOTO 3 -->
-
         <div class="polaroid">
 
 
@@ -1798,8 +1905,6 @@ footer {
         </div>
 
 
-
-        <!-- PHOTO 4 -->
 
         <div class="polaroid">
 
@@ -1829,7 +1934,7 @@ footer {
 
 
     <!-- =====================================================
-         VIDEO SECTION
+         VIDEO
     ====================================================== -->
 
     <section class="video-section">
@@ -1959,8 +2064,8 @@ footer {
         <p>
 
             I wish you could see yourself
-            through my eyes and understand how
-            much I believe in you.
+            through my eyes and understand
+            how much I believe in you.
 
             Your career, your achievements,
             your money, or where you are in
@@ -2116,42 +2221,51 @@ footer {
    PASSWORD
 ========================================================= */
 
-const THE_PASSWORD = "akkuankit";
+const THE_PASSWORD =
+    "akkuankit";
 
 
 /* =========================================================
-   MUSIC SETTINGS
+   AUDIO / VIDEO
 ========================================================= */
 
 const bgMusic =
-    document.getElementById("bgMusic");
+    document.getElementById(
+        "bgMusic"
+    );
 
 
 const memoryVideo =
-    document.getElementById("memoryVideo");
+    document.getElementById(
+        "memoryVideo"
+    );
 
 
 /*
-   Change this if you want the BGM louder.
+   BGM volume:
 
-   0.15 = very soft
+   0.15 = very quiet
    0.25 = soft
    0.40 = medium
    1.00 = maximum
 */
 
-const BGM_VOLUME = 0.25;
+const BGM_VOLUME =
+    0.25;
 
 
-let fadeTimer = null;
+let fadeTimer =
+    null;
 
 
 /* =========================================================
-   CREATE MOVING BLUE HEARTS
+   CREATE MOVING HEARTS
 ========================================================= */
 
 const heartsContainer =
-    document.getElementById("hearts");
+    document.getElementById(
+        "hearts"
+    );
 
 
 const heartSymbols = [
@@ -2164,7 +2278,8 @@ const heartSymbols = [
 ];
 
 
-const heartCount = 42;
+const heartCount =
+    42;
 
 
 for (
@@ -2175,7 +2290,9 @@ for (
 
 
     const heart =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
 
     heart.className =
@@ -2242,7 +2359,7 @@ for (
 
 
 /* =========================================================
-   SHOW PASSWORD SCREEN
+   SHOW PASSWORD
 ========================================================= */
 
 function showPasswordScreen() {
@@ -2271,11 +2388,13 @@ function showPasswordScreen() {
     setTimeout(
         () => {
 
+
             document
                 .getElementById(
                     "passwordInput"
                 )
                 .focus();
+
 
         },
         100
@@ -2285,22 +2404,30 @@ function showPasswordScreen() {
 
 
 /* =========================================================
-   FADE BGM IN
+   FADE MUSIC IN
 ========================================================= */
 
 function fadeMusicIn() {
 
 
-    if (fadeTimer) {
+    if (
+        fadeTimer
+    ) {
+
 
         clearInterval(
             fadeTimer
         );
 
+
+        fadeTimer =
+            null;
+
     }
 
 
-    bgMusic.volume = 0;
+    bgMusic.volume =
+        0;
 
 
     const playPromise =
@@ -2317,7 +2444,8 @@ function fadeMusicIn() {
                 () => {
 
 
-                    let volume = 0;
+                    let volume =
+                        0;
 
 
                     fadeTimer =
@@ -2325,7 +2453,8 @@ function fadeMusicIn() {
                             () => {
 
 
-                                volume += 0.01;
+                                volume +=
+                                    0.01;
 
 
                                 if (
@@ -2367,8 +2496,9 @@ function fadeMusicIn() {
                 () => {
 
                     /*
-                    Browser blocked playback.
-                    Nothing breaks.
+                    Some browsers may block
+                    playback until another
+                    user interaction.
                     */
 
                 }
@@ -2386,7 +2516,10 @@ function fadeMusicIn() {
 function pauseBackgroundMusic() {
 
 
-    if (fadeTimer) {
+    if (
+        fadeTimer
+    ) {
+
 
         clearInterval(
             fadeTimer
@@ -2435,8 +2568,6 @@ function checkPassword() {
     ) {
 
 
-        /* Hide password screen */
-
         document
             .getElementById(
                 "passwordScreen"
@@ -2446,8 +2577,6 @@ function checkPassword() {
                 "hidden"
             );
 
-
-        /* Show main page */
 
         document
             .getElementById(
@@ -2459,8 +2588,6 @@ function checkPassword() {
             );
 
 
-        /* Go to top */
-
         window.scrollTo(
             {
                 top: 0,
@@ -2470,12 +2597,9 @@ function checkPassword() {
 
 
         /*
-        Start romantic BGM.
-
-        Because the user clicked
-        the unlock button,
-        browsers normally allow
-        the audio to start here.
+        Correct password was submitted
+        through user interaction, so start
+        the BGM here.
         */
 
         fadeMusicIn();
@@ -2508,8 +2632,10 @@ function checkPassword() {
         setTimeout(
             () => {
 
+
                 inputBox.style.borderColor =
                     "";
+
 
             },
             700
@@ -2521,7 +2647,7 @@ function checkPassword() {
 
 
 /* =========================================================
-   ENTER KEY FOR PASSWORD
+   ENTER KEY PASSWORD
 ========================================================= */
 
 document.addEventListener(
@@ -2559,8 +2685,8 @@ document.addEventListener(
 
 
 /* =========================================================
-   VIDEO STARTS
-   → BGM STOPS
+   VIDEO PLAYS
+   BGM PAUSES
 ========================================================= */
 
 memoryVideo.addEventListener(
@@ -2576,20 +2702,12 @@ memoryVideo.addEventListener(
 
 /* =========================================================
    VIDEO MANUALLY PAUSED
-   → BGM RETURNS
+   BGM RETURNS
 ========================================================= */
 
 memoryVideo.addEventListener(
     "pause",
     () => {
-
-
-        /*
-        Do not restart music here
-        if the video reached its end.
-
-        The ended event handles that.
-        */
 
 
         if (
@@ -2610,9 +2728,9 @@ memoryVideo.addEventListener(
 /* =========================================================
    VIDEO ENDS
 
-   1. Return video to beginning
-   2. Reload poster image
-   3. BGM comes back
+   - return to cover image
+   - ready for replay
+   - restart BGM
 ========================================================= */
 
 memoryVideo.addEventListener(
@@ -2621,37 +2739,41 @@ memoryVideo.addEventListener(
 
 
         /*
-        Stop video and return
-        to the beginning.
+        Pause the completed video.
         */
 
         memoryVideo.pause();
 
 
-        memoryVideo.currentTime = 0;
+        /*
+        Return it to the beginning.
+        */
+
+        memoryVideo.currentTime =
+            0;
 
 
         /*
-        Calling load() makes the
-        browser show video-cover.jpeg
-        again instead of the final frame.
+        Reload the video element.
+        This restores video-cover.jpeg.
         */
 
         memoryVideo.load();
 
 
         /*
-        Bring the background music
-        back softly.
+        Bring BGM back softly.
         */
 
         setTimeout(
             () => {
 
+
                 fadeMusicIn();
 
+
             },
-            250
+            300
         );
 
     }
@@ -2659,7 +2781,7 @@ memoryVideo.addEventListener(
 
 
 /* =========================================================
-   FINAL REVEAL
+   FINAL MESSAGE
 ========================================================= */
 
 function toggleReveal() {
