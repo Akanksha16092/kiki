@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For My KIKI ❤️</title>
+
+<style>
+
+:root {
+    --aqua: #d9ffff;
+    --aqua-light: #efffff;
+    --aqua-dark: #b9f5f5;
+    --blue: #1976d2;
+    --deep-blue: #0d47a1;
+    --soft-blue: #64b5f6;
+    --text: #173b57;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    color: var(--text);
+
+    background:
+        radial-gradient(circle at top left, #ffffff 0%, transparent 35%),
+        linear-gradient(
+            135deg,
+            var(--aqua-light),
+            var(--aqua),
+            var(--aqua-dark)
+        );
+
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   ANIMATED BLUE HEART BACKGROUND
+========================================================= */
+
+.hearts {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.heart {
+    position: absolute;
+    bottom: -80px;
+
+    color: var(--blue);
+
+    opacity: 0.18;
+
+    animation:
+        floatHeart linear infinite,
+        heartGlow 3s ease-in-out infinite;
+}
+
+@keyframes floatHeart {
+
+    0% {
+        transform:
+            translateY(0)
+            translateX(0)
+            rotate(0deg)
+            scale(0.8);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.22;
+    }
+
+    50% {
+        transform:
+            translateY(-55vh)
+            translateX(30px)
+            rotate(15deg)
+            scale(1);
+    }
+
+    90% {
+        opacity: 0.18;
+    }
+
+    100% {
+        transform:
+            translateY(-120vh)
+            translateX(-30px)
+            rotate(-15deg)
+            scale(1.2);
+
+        opacity: 0;
+    }
+}
+
+@keyframes heartGlow {
+
+    0%, 100% {
+        filter: drop-shadow(0 0 3px rgba(25,118,210,.2));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 12px rgba(25,118,210,.5));
+    }
+}
+
+
+/* =========================================================
+   COMMON GATE SCREENS
+========================================================= */
+
+.gate {
+
+    position: relative;
+    z-index: 5;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================================================
+   FIRST SCREEN
+========================================================= */
+
+.gate-title {
+
+    font-family:
+        "Brush Script MT",
+        "Segoe Script",
+        cursive;
+
+    font-size: clamp(42px, 8vw, 80px);
+
+    color: var(--deep-blue);
+
+    margin-bottom: 20px;
+
+    text-shadow:
+        0 4px 15px rgba(25,118,210,.15);
+
+    opacity: 0;
+
+    animation:
+        riseIn 1.2s ease forwards,
+        titleFloat 4s ease-in-out infinite 1.2s;
+}
+
+.gate-sub {
+
+    font-size: clamp(15px, 2vw, 19px);
+
+    color: #397ba8;
+
+    margin-bottom: 35px;
+
+    opacity: 0;
+
+    animation:
+        riseIn 1.2s ease forwards .3s;
+}
+
+@keyframes riseIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes titleFloat {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.gate-btn,
+.reveal-btn {
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue),
+            var(--deep-blue)
+        );
+
+    border: none;
+
+    color: white;
+
+    padding: 15px 38px;
+
+    border-radius: 50px;
+
+    font-family: Georgia, serif;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px rgba(13,71,161,.22);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+
+}
+
+.gate-btn:hover,
+.reveal-btn:hover {
+
+    transform: translateY(-4px) scale(1.04);
+
+    box-shadow:
+        0 12px 35px rgba(13,71,161,.35);
+}
+
+
+/* =========================================================
+   PASSWORD SCREEN
+========================================================= */
+
+.password-form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 16px;
+}
+
+.password-input {
+
+    width: 280px;
+
+    padding: 15px 24px;
+
+    border-radius: 50px;
+
+    border: 2px solid rgba(25,118,210,.25);
+
+    background: rgba(255,255,255,.65);
+
+    backdrop-filter: blur(10px);
+
+    text-align: center;
+
+    font-size: 16px;
+
+    color: var(--deep-blue);
+
+    outline: none;
+}
+
+.password-input:focus {
+
+    border-color: var(--blue);
+
+    box-shadow:
+        0 0 20px rgba(25,118,210,.15);
+}
+
+.password-input::placeholder {
+    color: #73a6c9;
+}
+
+.password-error {
+
+    color: #d32f2f;
+
+    font-size: 13px;
+
+    opacity: 0;
+
+    transition: opacity .3s ease;
+}
+
+.password-error.show {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   MAIN PAGE
+========================================================= */
+
+.wrap {
+
+    position: relative;
+
+    z-index: 3;
+
+    max-width: 1000px;
+
+    margin: auto;
+
+    padding:
+        10vh 25px
+        12vh;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.eyebrow {
+
+    text-align: center;
+
+    text-transform: uppercase;
+
+    letter-spacing: .35em;
+
+    font-size: 12px;
+
+    color: var(--blue);
+
+    margin-bottom: 18px;
+}
+
+h1 {
+
+    font-family:
+        "Brush Script MT",
+        "Segoe Script",
+        Georgia,
+        serif;
+
+    font-size: clamp(38px, 7vw, 70px);
+
+    text-align: center;
+
+    color: var(--deep-blue);
+
+    margin: 0 0 12px;
+
+    line-height: 1.15;
+}
+
+h1 span {
+    color: var(--blue);
+}
+
+.sub {
+
+    max-width: 600px;
+
+    margin:
+        0 auto
+        8vh;
+
+    text-align: center;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    color: #397ba8;
+}
+
+
+/* =========================================================
+   PHOTO GALLERY
+========================================================= */
+
+.gallery {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 35px 24px;
+
+    margin-bottom: 9vh;
+}
+
+.polaroid {
+
+    width: 195px;
+
+    background: white;
+
+    padding:
+        13px
+        13px
+        42px;
+
+    border-radius: 5px;
+
+    box-shadow:
+        0 18px 45px rgba(13,71,161,.18);
+
+    animation:
+        photoFloat 6s ease-in-out infinite;
+
+    transition:
+        transform .35s ease;
+}
+
+.polaroid:nth-child(1) {
+    transform: rotate(-5deg);
+}
+
+.polaroid:nth-child(2) {
+    transform: rotate(4deg);
+    margin-top: 25px;
+}
+
+.polaroid:nth-child(3) {
+    transform: rotate(-3deg);
+}
+
+.polaroid:nth-child(4) {
+    transform: rotate(6deg);
+    margin-top: 20px;
+}
+
+.polaroid:hover {
+
+    transform:
+        rotate(0)
+        translateY(-8px)
+        scale(1.06);
+
+    z-index: 4;
+}
+
+@keyframes photoFloat {
+
+    0%,100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -7px;
+    }
+}
+
+.photo-slot {
+
+    width: 100%;
+
+    aspect-ratio: 4/5;
+
+    overflow: hidden;
+
+    border-radius: 3px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #b9f5f5,
+            #80d8ff
+        );
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: #397ba8;
+
+    text-align: center;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
+}
+
+.photo-slot img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: none;
+}
+
+.photo-slot img[src]:not([src=""]) {
+    display: block;
+}
+
+.caption {
+
+    text-align: center;
+
+    margin-top: 11px;
+
+    color: #34566d;
+
+    font-style: italic;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   VIDEO SECTION
+========================================================= */
+
+.video-section {
+
+    max-width: 760px;
+
+    margin:
+        0 auto
+        10vh;
+
+    text-align: center;
+}
+
+.video-title {
+
+    font-family:
+        "Brush Script MT",
+        "Segoe Script",
+        cursive;
+
+    font-size: clamp(30px,5vw,45px);
+
+    color: var(--deep-blue);
+
+    margin-bottom: 8px;
+}
+
+.video-sub {
+
+    color: #397ba8;
+
+    font-style: italic;
+
+    margin-bottom: 25px;
+}
+
+.video-frame {
+
+    position: relative;
+
+    padding: 12px;
+
+    border-radius: 22px;
+
+    background:
+        rgba(255,255,255,.55);
+
+    border:
+        1px solid
+        rgba(25,118,210,.18);
+
+    backdrop-filter:
+        blur(12px);
+
+    box-shadow:
+        0 20px 55px
+        rgba(13,71,161,.18);
+}
+
+.video-frame::before {
+
+    content: "♡";
+
+    position: absolute;
+
+    top: -25px;
+
+    right: -12px;
+
+    font-size: 55px;
+
+    color: var(--blue);
+
+    transform: rotate(15deg);
+}
+
+.memory-video {
+
+    display: block;
+
+    width: 100%;
+
+    max-height: 520px;
+
+    border-radius: 14px;
+
+    background: #c9f7f7;
+}
+
+
+/* =========================================================
+   LETTER
+========================================================= */
+
+.letter {
+
+    position: relative;
+
+    max-width: 760px;
+
+    margin: auto;
+
+    padding:
+        55px
+        48px;
+
+    background:
+        rgba(255,255,255,.58);
+
+    backdrop-filter:
+        blur(12px);
+
+    border:
+        1px solid
+        rgba(25,118,210,.18);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(13,71,161,.12);
+}
+
+.letter::before {
+
+    content: "♥";
+
+    position: absolute;
+
+    top: -30px;
+
+    left: 30px;
+
+    font-size: 65px;
+
+    color: var(--blue);
+
+    opacity: .25;
+}
+
+.letter p {
+
+    margin:
+        0 0
+        25px;
+
+    font-size:
+        clamp(16px,2.2vw,20px);
+
+    line-height: 1.9;
+
+    color: var(--text);
+
+    text-align: justify;
+}
+
+.letter p:last-child {
+    margin-bottom: 0;
+}
+
+.accent {
+
+    color: var(--deep-blue);
+
+    font-weight: bold;
+
+    font-style: italic;
+}
+
+
+/* =========================================================
+   FINAL LOVE MESSAGE
+========================================================= */
+
+.final-love {
+
+    text-align: center !important;
+
+    font-family:
+        "Brush Script MT",
+        "Segoe Script",
+        cursive;
+
+    font-size:
+        clamp(24px,4vw,35px) !important;
+
+    color:
+        var(--deep-blue) !important;
+
+    margin-top:
+        35px !important;
+}
+
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+.reveal-wrap {
+
+    text-align: center;
+
+    margin-top: 7vh;
+}
+
+.reveal-text {
+
+    max-width: 600px;
+
+    margin: 25px auto 0;
+
+    color: var(--deep-blue);
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    max-height: 0;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transition: all .7s ease;
+}
+
+.reveal-text.open {
+
+    max-height: 300px;
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    text-align: center;
+
+    margin-top: 10vh;
+
+    color: #6293b5;
+
+    font-size: 12px;
+
+    text-transform: uppercase;
+
+    letter-spacing: .2em;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:600px) {
+
+    .wrap {
+        padding-left: 17px;
+        padding-right: 17px;
+    }
+
+    .polaroid {
+        width: 43vw;
+        margin-top: 0 !important;
+    }
+
+    .letter {
+
+        padding:
+            42px
+            24px;
+
+        border-radius: 20px;
+    }
+
+    .letter p {
+        text-align: left;
+    }
+
+    .video-frame {
+        padding: 7px;
+    }
+
+    .video-frame::before {
+        right: 2px;
+    }
+
+}
+
+@media(prefers-reduced-motion: reduce) {
+
+    .heart,
+    .polaroid,
+    .gate-title {
+
+        animation: none !important;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- =========================================================
+     MOVING HEART BACKGROUND
+========================================================= -->
+
+<div class="hearts" id="hearts"></div>
+
+
+<!-- =========================================================
+     SCREEN 1
+========================================================= -->
+
+<div class="gate" id="openerScreen">
+
+    <div class="gate-title">
+        Heyy KIKI love ❤️
+    </div>
+
+    <div class="gate-sub">
+        I have a little something for you...
+    </div>
+
+    <button
+        class="gate-btn"
+        onclick="showPasswordScreen()">
+
+        click here ♡
+
+    </button>
+
+</div>
+
+
+<!-- =========================================================
+     SCREEN 2 — PASSWORD
+========================================================= -->
+
+<div
+    class="gate hidden"
+    id="passwordScreen">
+
+    <div class="gate-title">
+        One little secret first ♡
+    </div>
+
+    <div class="gate-sub">
+        You know this one...
+    </div>
+
+    <div class="password-form">
+
+        <input
+            type="password"
+            class="password-input"
+            id="passwordInput"
+            placeholder="type the password"
+            autocomplete="off"
+        >
+
+        <button
+            class="gate-btn"
+            onclick="checkPassword()">
+
+            unlock it ❤️
+
+        </button>
+
+        <div
+            class="password-error"
+            id="passwordError">
+
+            Nopeee KIKI 😭 try again
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     MAIN CONTENT
+========================================================= -->
+
+<div
+    class="wrap hidden"
+    id="mainContent">
+
+
+    <div class="eyebrow">
+        A LITTLE SOMETHING FROM ME TO YOU
+    </div>
+
+
+    <h1>
+        For my
+        <span>KIKI ❤️</span>
+    </h1>
+
+
+    <p class="sub">
+        Some memories, some words, and a little reminder
+        of just how much you mean to me.
+    </p>
+
+
+
+    <!-- =====================================================
+         PHOTO GALLERY
+
+         Put your photos in the same folder as this HTML file.
+
+         Example:
+         src="photo1.jpg"
+    ====================================================== -->
+
+
+    <div class="gallery">
+
+
+        <div class="polaroid">
+
+            <div class="photo-slot">
+
+                <img
+                    src="photo1.jpeg"
+                    alt="Our photo 1">
+
+                <span>
+                    photo 1 ❤️
+                </span>
+
+            </div>
+
+            <div class="caption">
+                one of my favourite memories
+            </div>
+
+        </div>
+
+
+
+        <div class="polaroid">
+
+            <div class="photo-slot">
+
+                <img
+                    src="photo2.jpeg"
+                    alt="Our photo 2">
+
+                <span>
+                    photo 2 ❤️
+                </span>
+
+            </div>
+
+            <div class="caption">
+                my favourite person
+            </div>
+
+        </div>
+
+
+
+        <div class="polaroid">
+
+            <div class="photo-slot">
+
+                <img
+                    src="photo3.jpeg"
+                    alt="Our photo 3">
+
+                <span>
+                    photo 3 ❤️
+                </span>
+
+            </div>
+
+            <div class="caption">
+                just us being us
+            </div>
+
+        </div>
+
+
+
+        <div class="polaroid">
+
+            <div class="photo-slot">
+
+                <img
+                    src="photo4.jpeg"
+                    alt="Our photo 4">
+
+                <span>
+                    photo 4 ❤️
+                </span>
+
+            </div>
+
+            <div class="caption">
+                home is wherever you are
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         VIDEO SECTION
+
+         HOW TO ADD YOUR VIDEO:
+
+         1. Put your video in the SAME folder as this HTML file.
+         2. Rename it to:
+
+                 our-video.mp4
+
+         OR change src below to your video's filename.
+
+         Example:
+
+                 src="kiki.mp4"
+    ====================================================== -->
+
+
+    <section class="video-section">
+
+
+        <div class="video-title">
+            A little piece of us ❤️
+        </div>
+
+
+        <div class="video-sub">
+            Because some memories deserve more than just a picture.
+        </div>
+
+
+        <div class="video-frame">
+
+
+            <video
+                class="memory-video"
+                controls
+                playsinline
+                preload="metadata"
+                poster="video-cover.jpeg">
+
+                <source
+                    src="our-video.mp4"
+                    type="video/mp4">
+
+                Your browser does not support the video.
+
+            </video>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         YOUR MESSAGE
+    ====================================================== -->
+
+
+    <div class="letter">
+
+
+        <p>
+            I know things feel a little heavy right now,
+            especially when it comes to your career and figuring
+            out what’s next, but please believe me when I say that
+            <span class="accent">
+                eventually, everything will fall into place.
+            </span>
+
+            Maybe not exactly when you want it to, and maybe not in
+            the way you imagined, but it will. And until then, you
+            don’t have to have everything figured out.
+        </p>
+
+
+        <p>
+            I don’t want you to be perfect. I don’t need you to
+            always be strong, successful, happy, or sure about
+            everything.
+
+            I accept you in every version of you.. when you’re happy,
+            when you’re sad, when you’re angry, when you’re lost,
+            and even on the days when you feel like you have nothing
+            to offer.
+
+            <span class="accent">
+                None of that could ever make me love you any less.
+            </span>
+        </p>
+
+
+        <p>
+            I wish you could see yourself through my eyes and
+            understand how much I believe in you.
+
+            Your career, your achievements, your money, or where you
+            are in life could never define what you mean to me.
+
+            Even if one day you feel like you have nothing, just
+            remember that you’ll still have me standing beside you,
+            believing in you, loving you, and reminding you of who
+            you are until you can believe in yourself again.
+        </p>
+
+
+        <p>
+            You don’t have to win every day. You’re allowed to feel
+            tired, confused, scared, or disappointed.
+
+            Just don’t give up on yourself because this phase is not
+            your whole story.
+
+            There is so much waiting for you, and I genuinely believe
+            that one day you’ll look back at this time and realise
+            why you had to go through it.
+        </p>
+
+
+        <p>
+            And no matter how life changes, I want you to remember
+            one thing,
+
+            <span class="accent">
+                I love you for you, not for what you achieve or what
+                you can give me.
+            </span>
+
+            I love the happy you, the struggling you, the ambitious
+            you, the tired you… all of you.
+
+            You are enough for me exactly as you are.
+        </p>
+
+
+        <p class="final-love">
+            And I love you more than you could ever imagine ❤️
+        </p>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         FINAL REVEAL
+    ====================================================== -->
+
+
+    <div class="reveal-wrap">
+
+
+        <button
+            class="reveal-btn"
+            onclick="toggleReveal()">
+
+            one more thing… ♡
+
+        </button>
+
+
+        <div
+            class="reveal-text"
+            id="revealText">
+
+            No matter where life takes us or how difficult
+            some days become, you will never have to face
+            everything alone.
+
+            You have me, KIKI. Always. ❤️
+
+        </div>
+
+
+    </div>
+
+
+
+    <footer>
+        MADE WITH ALL MY LOVE ♡
+    </footer>
+
+
+</div>
+
+
+
+<script>
+
+
+/* =========================================================
+   CREATE ANIMATED HEARTS
+========================================================= */
+
+
+const heartsContainer =
+    document.getElementById("hearts");
+
+
+const heartSymbols =
+[
+    "♥",
+    "♡",
+    "♥",
+    "♡"
+];
+
+
+const heartCount = 38;
+
+
+for (
+    let i = 0;
+    i < heartCount;
+    i++
+) {
+
+    const heart =
+        document.createElement("div");
+
+
+    heart.className = "heart";
+
+
+    heart.innerHTML =
+        heartSymbols[
+            Math.floor(
+                Math.random()
+                *
+                heartSymbols.length
+            )
+        ];
+
+
+    heart.style.left =
+        Math.random() * 100 + "%";
+
+
+    heart.style.fontSize =
+        (
+            15
+            +
+            Math.random() * 30
+        )
+        + "px";
+
+
+    heart.style.animationDuration =
+        (
+            8
+            +
+            Math.random() * 12
+        )
+        + "s";
+
+
+    heart.style.animationDelay =
+        (
+            Math.random() * -20
+        )
+        + "s";
+
+
+    heartsContainer.appendChild(
+        heart
+    );
+
+}
+
+
+
+/* =========================================================
+   PASSWORD
+
+   YOUR PASSWORD:
+   akkuankit
+========================================================= */
+
+
+const THE_PASSWORD =
+    "akkuankit";
+
+
+
+function showPasswordScreen() {
+
+    document
+        .getElementById(
+            "openerScreen"
+        )
+        .classList
+        .add("hidden");
+
+
+    document
+        .getElementById(
+            "passwordScreen"
+        )
+        .classList
+        .remove("hidden");
+
+
+    document
+        .getElementById(
+            "passwordInput"
+        )
+        .focus();
+
+}
+
+
+
+function checkPassword() {
+
+
+    const input =
+
+        document
+            .getElementById(
+                "passwordInput"
+            )
+            .value
+            .trim()
+            .toLowerCase();
+
+
+    const error =
+
+        document
+            .getElementById(
+                "passwordError"
+            );
+
+
+    if (
+        input
+        ===
+        THE_PASSWORD.toLowerCase()
+    ) {
+
+
+        document
+            .getElementById(
+                "passwordScreen"
+            )
+            .classList
+            .add("hidden");
+
+
+        document
+            .getElementById(
+                "mainContent"
+            )
+            .classList
+            .remove("hidden");
+
+
+        window.scrollTo(
+            0,
+            0
+        );
+
+
+    } else {
+
+
+        error
+            .classList
+            .add("show");
+
+
+        const inputBox =
+            document
+                .getElementById(
+                    "passwordInput"
+                );
+
+
+        inputBox.style.borderColor =
+            "#d32f2f";
+
+
+        setTimeout(
+            () => {
+
+                inputBox
+                    .style
+                    .borderColor = "";
+
+            },
+            700
+        );
+
+    }
+
+}
+
+
+
+/* =========================================================
+   PRESS ENTER FOR PASSWORD
+========================================================= */
+
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+
+        const input =
+            document.getElementById(
+                "passwordInput"
+            );
+
+
+        if (input) {
+
+
+            input.addEventListener(
+                "keyup",
+                (event) => {
+
+
+                    if (
+                        event.key
+                        ===
+                        "Enter"
+                    ) {
+
+                        checkPassword();
+
+                    }
+
+                }
+            );
+
+        }
+
+    }
+);
+
+
+
+/* =========================================================
+   FINAL REVEAL BUTTON
+========================================================= */
+
+
+function toggleReveal() {
+
+    document
+        .getElementById(
+            "revealText"
+        )
+        .classList
+        .toggle("open");
+
+}
+
+
+</script>
+
+
+</body>
+</html>
